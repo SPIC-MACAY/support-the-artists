@@ -1,18 +1,17 @@
-import Link from 'next/link'
+export async function getServerSideProps() {
+  let apiEndPoint = 'http://localhost:3000/api/support-the-artists';
+  const res = await fetch(apiEndPoint);
+  const data = await res.json();
+  return {
+    props: data, // will be passed to the page component as props
+  };
+}
 
-export default function Home() {
+export default function Home(googleSheetData: any) {
+  console.log(googleSheetData);
   return (
     <ul>
-      <li>
-        <Link href="/a" as="/a">
-          <a>a</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/b" as="/b">
-          <a>b</a>
-        </Link>
-      </li>
+      {JSON.stringify(googleSheetData)}
     </ul>
-  )
+  );
 }
