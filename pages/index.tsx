@@ -1,4 +1,6 @@
-import  groupBy from "lodash.groupby";
+import groupBy from "lodash.groupby";
+import DonateButton from "components/manishComponents/DonateButton";
+import Navigation from "components/manishkit/Navigation";
 
 export async function getServerSideProps() {
   let apiEndPoint = "http://localhost:3000/api/support-the-artists";
@@ -48,9 +50,38 @@ const sampleData: ArtistData[] = [
 ];
 
 export default function Home({ data }: { data: any[] }) {
-  //const structuredData = data.map((row) => getArtistDataFromData(row));
-  const artFormGroupData = groupBy(sampleData, 'artForm');
+  const structuredData = data.map((row) => getArtistDataFromData(row));
+  const artFormGroupData = groupBy(sampleData, "artForm");
   console.log(artFormGroupData);
-  return <p><ul>{JSON.stringify(sampleData)}</ul>
-  <img src="sample-image.jpeg" /></p>;
+  console.log(structuredData);
+  return (
+    <>
+      <p>
+        <ul>{JSON.stringify(sampleData)}</ul>
+        {/* <img src="sample-image.jpeg" /> */}
+      </p>
+      <Navigation />
+
+      <div className="flex my-2 mx-48  " style={{ background: "gray" }}>
+        <div style={{ flex: 5 }}>
+          <img
+            className="py-2 px-4 h-48 w-full"
+            src="https://media4.giphy.com/media/MF71GS0AhLs1jKULEp/giphy.gif?cid=790b76111bc8a54e8fca0c46364682f50ec378c385f441ab&rid=giphy.gif&ct=g"
+            alt="img"
+          />
+        </div>
+        <div style={{ flex: 9 }}>
+          <h3>See artist State Wise</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora rem
+            praesentium ipsa expedita saepe, esse suscipit, debitis veritatis
+            ipsam ratione id nulla quae eos cumque vitae libero ducimus
+            assumenda. Sunt!
+          </p>
+        </div>
+      </div>
+
+      <DonateButton />
+    </>
+  );
 }
