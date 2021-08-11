@@ -3089,6 +3089,11 @@ public-encrypt@^4.0.0:
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
 
+public-google-sheets-parser@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/public-google-sheets-parser/-/public-google-sheets-parser-1.2.4.tgz#b3526a50e26190721babfbc87edf608b3cf0817c"
+  integrity sha512-wJBV6zf+F7XALgmLSoCPkQvsVI2ode6lFBjQENQJuCb9fFC4nG1P4I4vKy8Zxxi6Y1hv9qgI0NksOHHJGiDi6g==
+
 pump@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pump/-/pump-3.0.0.tgz#b4a2116815bde2f4e1ea602354e8c75565107a64"
